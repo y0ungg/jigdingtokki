@@ -1,0 +1,4 @@
+@font-face{
+  font-family:'bitbit';
+  src: url('chrome-extension://__MSG_@@extension_id__/font/DNFBitBitOTF.otf'),url('chrome-extension://__MSG_@@extension_id__/font/DNFBitBitTTF.ttf');
+}
