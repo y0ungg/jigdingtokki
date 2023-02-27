@@ -1,46 +1,40 @@
-const image = document.createElement("img");
-image.src = `chrome-extension://${chrome.runtime.id}/images/stage1-a.png`;
-// for (let x = 0; x <= 450; x += 15) {
-//   context.moveTo(x, 0);
-//   context.lineTo(x, 450);
-// }
-// for (let y = 0; y <= 450; y += 15) {
-//   context.moveTo(0, y);
-//   context.lineTo(450, y);
-// }
+const images = document.querySelectorAll(".border > img");
+const colors = document.querySelectorAll(".color");
 
-const getImage = () => {
-  const canvas = document.getElementById("canvas");
-  const context = canvas.getContext("2d");
-  if (context) {
-    context.drawImage(image, 0, 0);
-    context.strokeStyle = "black";
-    context.stroke();
-  }
+const useState = (defaultValue) => {
+  let value = defaultValue;
+  const getValue = () => value;
+  const setValue = (newValue) => (value = newValue);
+  return [getValue, setValue];
 };
 
-window.addEventListener("load", getImage);
+let selectedColor;
+
+const setPalette = () => {
+  const paletteName = palette.className;
+  selectedColor = PALETTE_COLORS[paletteName].one;
+  colors.forEach((color) => {
+    color.src = `chrome-extension://${chrome.runtime.id}/palette/${paletteName}/${color.id}.png`;
+    color.addEventListener(
+      "click",
+      () => (selectedColor = PALETTE_COLORS[paletteName][color.id])
+    );
+  });
+};
+
+images.forEach((image) => {
+  image.addEventListener("click", setPalette);
+});
 
 const doPaint = (event) => {
-  const canvas = document.getElementById("canvas");
-  const context = canvas.getContext("2d");
-  const x = event.offsetX;
-  const y = event.offsetY;
-  if (context) {
-    context.fillStyle = "green";
-    context.fillRect(x - 8, y - 8, 15, 15);
-  }
-};
-
-canvas.addEventListener("mousedown", getNearestSquare);
-
-function getNearestSquare(event) {
   const canvas = document.getElementById("canvas");
   const context = canvas.getContext("2d");
   const x = Math.floor(event.offsetX / 15) * 15;
   const y = Math.floor(event.offsetY / 15) * 15;
   if (context) {
-    context.fillStyle = "#FF0000";
+    context.fillStyle = selectedColor;
     context.fillRect(x, y, 15, 15);
   }
-}
+};
+
+canvas.addEventListener("mousedown", doPaint);

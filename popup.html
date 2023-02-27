@@ -5,34 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/popup.css" />
     <link rel="stylesheet" href="css/font.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css"
+    />
   </head>
   <body>
-    <div id="menu">
-      <div class="title">색칠공부</div>
-      <img class="stage" src="assets/stage1.png" />
-      <div class="border">
-        <img id="stage1-a" src="assets/stage1-a.png" />
-        <img src="assets/border.png" />
-        <img src="assets/border.png" />
+    <div id="menu--container">
+      <div>
+        <span>Color By Number</span>
+        <img src="assets/close-btn.png" />
       </div>
-      <img class="stage" src="assets/stage2.png" />
-      <div class="border">
-        <img src="assets/border.png" />
-        <img src="assets/border.png" />
-        <img src="assets/border.png" />
-      </div>
-      <img class="stage" src="assets/stage3.png" />
-      <div class="border">
-        <img src="assets/border.png" />
-        <img src="assets/border.png" />
-        <img src="assets/border.png" />
+      <div id="menu">
+        <div>직딩 토끼의 하루</div>
+        <img class="stage" src="assets/stage1.png" />
+        <div class="border">
+          <img id="stage1-a" src="assets/b-stage1-a.png" />
+          <img id="stage1-b" src="assets/border.png" />
+          <img id="stage1-c" src="assets/border.png" />
+        </div>
+        <img class="stage" src="assets/stage2.png" />
+        <div class="border">
+          <img id="stage2-a" src="assets/border.png" />
+          <img id="stage2-b" src="assets/border.png" />
+          <img id="stage2-c" src="assets/border.png" />
+        </div>
+        <img class="stage" src="assets/stage3.png" />
+        <div class="border">
+          <img id="stage3-a" src="assets/border.png" />
+          <img id="stage3-b" src="assets/border.png" />
+          <img id="stage3-c" src="assets/border.png" />
+        </div>
       </div>
     </div>
-    <div id="painting">
-      <div class="title">색칠공부</div>
+    <div id="painting--container">
+      <div class="painting--button">
+        <img id="back-btn" src="assets/back-btn.png" />
+        <div>
+          <img id="save-btn" src="assets/save-btn.png" />
+          <img id="twitter-btn" src="assets/twitter-btn.png" />
+        </div>
+      </div>
       <canvas id="canvas" width="450" height="450"></canvas>
+      <div class="painting--button">
+        <img id="pen-btn" src="assets/pen-btn.png" />
+        <div>
+          <img id="cancel-btn" src="assets/cancel-btn.png" />
+          <img id="delete-btn" src="assets/delete-btn.png" />
+        </div>
+      </div>
+      <div id="palette">
+        <img class="color" id="one" />
+        <img class="color" id="two" />
+        <img class="color" id="three" />
+        <img class="color" id="four" />
+        <img class="color" id="five" />
+        <img class="color" id="six" />
+      </div>
     </div>
     <script type="text/javascript" src="popup.js"></script>
-    <script src="draw.js"></script>
+    <script type="text/javascript" src="modules/constants.js"></script>
+    <script type="text/javascript" src="draw.js"></script>
   </body>
 </html>

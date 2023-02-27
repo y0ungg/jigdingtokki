@@ -10,11 +10,12 @@
       "<all_urls>"
     ],
     "resources": [
-    "css/font.css",
-    "css/popup.css",
-    "font/DNFBitBitOTF.otf",
-    "font/DNFBitBitTTF.ttf",
-    "assets/*.png",
-  "images/*.png"]
+      "css/font.css",
+      "css/popup.css",
+      "font/DNFBitBitOTF.otf",
+      "font/DNFBitBitTTF.ttf",
+      "assets/*.png",
+      "images/*.png"
+    ]
   }]
 }
