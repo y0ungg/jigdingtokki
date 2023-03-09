@@ -4,6 +4,8 @@ const eraser = document.getElementById("eraser-btn");
 const pen = document.getElementById("pen-btn");
 const undo = document.getElementById("cancel-btn");
 const remove = document.getElementById("delete-btn");
+const download = document.getElementById("save-btn");
+const tweet = document.getElementById("twitter-btn");
 const context = canvas.getContext("2d");
 
 let selectedColor;
@@ -66,3 +68,12 @@ remove.addEventListener("click", () => {
   pointArray.splice(0);
   context.clearRect(0, 0, 450, 450);
 });
+
+const downloadImage = () => {
+  const link = document.createElement("a");
+  link.download = "jigdingtokki.png";
+  link.href = canvas.toDataURL("image/png");
+  link.click();
+};
+
+download.addEventListener("click", downloadImage);
