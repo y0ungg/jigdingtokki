@@ -59,6 +59,16 @@ body {
   width: 460px;
   margin: 30px;
 }
+#painting--container > div.painting--button img, img.color {
+  cursor: pointer;
+}
 #painting--container > div.painting--button > img:first-child {
   margin-right: 10px;
+}
+
+#canvas.pen {
+  cursor: url("chrome-extension://__MSG_@@extension_id__/assets/cursor-pen.png") -5 20, default;
+}
+#canvas.eraser {
+  cursor: url("chrome-extension://__MSG_@@extension_id__/assets/cursor-eraser.png") -5 20, default;
 }

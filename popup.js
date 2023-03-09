@@ -3,6 +3,7 @@ const painting = document.getElementById("painting--container");
 const selectedImage = document.querySelectorAll(".border img");
 const palette = document.getElementById("palette");
 const backBtn = document.getElementById("back-btn");
+const canvas = document.getElementById("canvas");
 
 const image = document.createElement("img");
 
@@ -16,13 +17,11 @@ selectedImage.forEach((img) => {
 });
 
 const getImage = () => {
-  const canvas = document.getElementById("canvas");
-  const context = canvas.getContext("2d");
-  if (context) {
-    context.drawImage(image, 0, 0);
-    context.strokeStyle = "black";
-    context.stroke();
-  }
+  const wrapper = document.getElementById("canvas--container");
+  wrapper.style.height = "450px";
+  canvas.style.zIndex = 1;
+  canvas.style.position = "absolute";
+  wrapper.appendChild(image);
 };
 
 image.addEventListener("load", getImage);

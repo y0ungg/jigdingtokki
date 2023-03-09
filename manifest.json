@@ -1,10 +1,10 @@
 {
-  "name": "JMY pipo",
+  "name": "직딩 토끼의 하루",
   "action": {
     "default_popup": "popup.html"
   },
   "manifest_version": 3,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "web_accessible_resources": [{
     "matches": [
       "<all_urls>"
@@ -17,5 +17,10 @@
       "assets/*.png",
       "images/*.png"
     ]
-  }]
+  }],
+  "icons": {
+    "16": "assets/carrot.png",
+    "48": "assets/carrot.png",
+    "128": "assets/carrot.png"
+  }
 }
