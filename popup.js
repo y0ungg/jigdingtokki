@@ -4,6 +4,7 @@ const selectedImage = document.querySelectorAll(".border img");
 const palette = document.getElementById("palette");
 const backBtn = document.getElementById("back-btn");
 const canvas = document.getElementById("canvas");
+const close = document.getElementById("close-btn");
 
 const image = document.createElement("img");
 
@@ -32,3 +33,7 @@ const backToMenu = () => {
 };
 
 backBtn.addEventListener("click", backToMenu);
+
+close.addEventListener("click", () => {
+  window.close();
+});
