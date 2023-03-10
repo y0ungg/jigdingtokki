@@ -19,8 +19,8 @@
     ]
   }],
   "icons": {
-    "16": "assets/carrot.png",
-    "48": "assets/carrot.png",
-    "128": "assets/carrot.png"
+    "16": "assets/carrot128.png",
+    "48": "assets/carrot128.png",
+    "128": "assets/carrot128.png"
   }
 }

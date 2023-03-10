@@ -19,9 +19,9 @@ selectedImage.forEach((img) => {
 
 const getImage = () => {
   const wrapper = document.getElementById("canvas--container");
-  wrapper.style.height = "450px";
-  canvas.style.zIndex = 1;
-  canvas.style.position = "absolute";
+  image.style.position = "absolute";
+  image.style.left = "6px";
+  image.style.top = "6px";
   wrapper.appendChild(image);
 };
 
