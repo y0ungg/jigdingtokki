@@ -48,7 +48,7 @@ body {
 }
 
 #painting--container {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -59,11 +59,29 @@ body {
   width: 460px;
   margin: 30px;
 }
-#painting--container > div.painting--button img, img.color {
+#painting--container > div.painting--button img, div.color {
   cursor: pointer;
 }
-#painting--container > div.painting--button > img:first-child {
-  margin-right: 10px;
+
+#palette {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 350px;
+}
+#palette > div.color {
+  position: relative;
+  width: 39px;
+  height: 36px;
+  margin: 0 10px 10px 0;
+}
+#palette > div.color > div.number {
+  font-family: "Galmuri11";
+  position: absolute;
+  z-index: 1;
+  top: 11px;
+  text-align: center;
+  width: 39px;
 }
 
 #canvas {
@@ -77,6 +95,11 @@ body {
 }
 #canvas.eraser {
   cursor: url("chrome-extension://__MSG_@@extension_id__/assets/cursor-eraser.png") -5 20, default;
+}
+#canvas--image {
+  position: absolute;
+  top: 6px;
+  left: 6px;
 }
 
 #canvas--container {

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "es5",
+    "allowJs": true,
+    "jsx": "react",
+    "isolatedModules": true,
+    "noEmit": true,
+    "moduleResolution":"node",
+    "baseUrl": ".",
+  },
+  "files": ["src/index.tsx"],
+  "include": ["src"]
+}

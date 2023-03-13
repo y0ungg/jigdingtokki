@@ -1,5 +1,4 @@
 const images = document.querySelectorAll(".border > img");
-const colors = document.querySelectorAll(".color");
 const eraser = document.getElementById("eraser-btn");
 const pen = document.getElementById("pen-btn");
 const undo = document.getElementById("cancel-btn");
@@ -17,22 +16,6 @@ const setCursorPen = () => {
   canvas.classList.add("pen");
 };
 
-const setPalette = () => {
-  const paletteName = palette.className;
-  selectedColor = PALETTE_COLORS[paletteName].one;
-  colors.forEach((color) => {
-    color.src = `chrome-extension://${chrome.runtime.id}/palette/${paletteName}/${color.id}.png`;
-    color.addEventListener("click", () => {
-      setCursorPen();
-      selectedColor = PALETTE_COLORS[paletteName][color.id];
-    });
-  });
-};
-
-images.forEach((image) => {
-  image.addEventListener("click", setPalette);
-});
-
 eraser.addEventListener("click", () => {
   isEraserMode = true;
   canvas.classList.remove("pen");
@@ -41,32 +24,27 @@ eraser.addEventListener("click", () => {
 
 pen.addEventListener("click", setCursorPen);
 
-const pointArray = [];
-
-const doPaint = (event) => {
-  const x = Math.floor(event.offsetX / 15) * 15;
-  const y = Math.floor(event.offsetY / 15) * 15;
-  pointArray.unshift({ x, y });
-  if (context && isEraserMode) {
-    context.clearRect(x, y, 15, 15);
-  } else if (context) {
-    context.fillStyle = selectedColor;
-    context.fillRect(x, y, 15, 15);
-  }
+const setPalette = () => {
+  const paletteName = palette.className;
+  selectedColor = PALETTE_COLORS[paletteName][0];
+  PALETTE_COLORS[paletteName].forEach((code, idx) => {
+    const colorBg = document.createElement("div");
+    colorBg.classList.add("color");
+    colorBg.style.background = `${code} url("chrome-extension://${chrome.runtime.id}/assets/color-btn.png")`;
+    const number = document.createElement("div");
+    number.classList.add("number");
+    number.innerText = idx < 10 ? `  ${idx + 1}` : idx + 1;
+    colorBg.appendChild(number);
+    palette.appendChild(colorBg);
+    colorBg.addEventListener("click", () => {
+      setCursorPen();
+      selectedColor = PALETTE_COLORS[paletteName][idx];
+    });
+  });
 };
 
-canvas.addEventListener("mousedown", doPaint);
-
-undo.addEventListener("click", () => {
-  if (pointArray.length === 0) return;
-  const { x, y } = pointArray[0];
-  context.clearRect(x, y, 15, 15);
-  pointArray.shift();
-});
-
-remove.addEventListener("click", () => {
-  pointArray.splice(0);
-  context.clearRect(0, 0, 450, 450);
+images.forEach((image) => {
+  image.addEventListener("click", setPalette);
 });
 
 const downloadImage = () => {

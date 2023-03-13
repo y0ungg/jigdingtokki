@@ -1,7 +1,7 @@
 {
   "name": "직딩 토끼의 하루",
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "index.html"
   },
   "manifest_version": 3,
   "version": "1.0.1",
@@ -10,12 +10,12 @@
       "<all_urls>"
     ],
     "resources": [
-      "css/font.css",
-      "css/popup.css",
+      "main.css",
       "font/DNFBitBitOTF.otf",
       "font/DNFBitBitTTF.ttf",
       "assets/*.png",
-      "images/*.png"
+      "images/*.png",
+      "border-menu/*.png"
     ]
   }],
   "icons": {

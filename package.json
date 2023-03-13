@@ -1,21 +1,46 @@
 {
-  "name": "jmy-paintbynumber",
+  "name": "jmy-pipo-painting",
   "version": "1.0.0",
-  "description": "jmy paint by number",
-  "main": "popup.js",
+  "description": "jmy pipo painting",
+  "main": "./src/index.tsx",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write **.js **.html */**.js",
-    "lint": "eslint --ext .js"
+    "format": "prettier --write **.js **.html */**.tsx */*/*.tsx */*/*/*.tsx",
+    "lint": "eslint --ext .tsx",
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch"
   },
   "author": "y0ungg",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.0",
+    "@types/react-dom": "^18.0.11",
+    "@webpack-cli/generators": "^3.0.1",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.4"
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.2",
+    "prettier": "^2.8.4",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5",
+    "webpack": "^5.76.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
