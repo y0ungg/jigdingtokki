@@ -1,6 +1,6 @@
 import React from "react";
-import MenuPage from "./views/MenuPage";
-import PaintPage from "./views/PaintPage";
+import MenuPage from "@/views/MenuPage";
+import PaintPage from "@/views/PaintPage";
 
 const App = () => {
   const [selectedImage, setSelectedImage] = React.useState<string | null>(null);

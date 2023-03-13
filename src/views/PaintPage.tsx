@@ -1,5 +1,5 @@
 import React from "react";
-import { Palette, Canvas, CanvasButtonItems } from "./components";
+import { Palette, Canvas, CanvasButtonItems } from "@/views/components";
 
 type PaintPageProps = {
   paletteId: string | null;
@@ -10,6 +10,7 @@ type PaintPageProps = {
 const PaintPage = (props: PaintPageProps) => {
   const { paletteId, selectedImage, setSelectedImage } = props;
   const [isEraserMode, setIsEraserMode] = React.useState(false);
+  const [selectedColor, setSelectedColor] = React.useState<string | null>(null);
 
   const handleBackToMenu = () => {
     setSelectedImage(null);
@@ -40,12 +41,20 @@ const PaintPage = (props: PaintPageProps) => {
           />
         </div>
       </div>
-      <Canvas isEraserMode={isEraserMode} selectedImage={selectedImage} />
+      <Canvas
+        selectedColor={selectedColor}
+        isEraserMode={isEraserMode}
+        selectedImage={selectedImage}
+      />
       <CanvasButtonItems
         isEraserMode={isEraserMode}
         setIsEraserMode={setIsEraserMode}
       />
-      <Palette paletteId={paletteId} setIsEraserMode={setIsEraserMode} />
+      <Palette
+        setSelectedColor={setSelectedColor}
+        paletteId={paletteId}
+        setIsEraserMode={setIsEraserMode}
+      />
     </div>
   );
 };

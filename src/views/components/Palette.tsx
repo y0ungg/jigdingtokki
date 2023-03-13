@@ -1,14 +1,14 @@
 import React from "react";
-import { PALETTE_COLORS } from "../../constants";
+import { PALETTE_COLORS } from "@/constants";
 
 type PaletteProps = {
   paletteId: string | null;
   setIsEraserMode: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectedColor: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const Palette = (props: PaletteProps) => {
-  const { paletteId, setIsEraserMode } = props;
-  const [selectedColor, setSelectedColor] = React.useState<string | null>(null);
+  const { paletteId, setIsEraserMode, setSelectedColor } = props;
 
   const handleSelectColor = (idx: number) => {
     setIsEraserMode(false);
