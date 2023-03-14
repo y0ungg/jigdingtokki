@@ -1,5 +1,5 @@
 import React from "react";
-import { Palette, Canvas, CanvasButtonItems } from "@/views/components";
+import { Palette, Canvas } from "@/views/components";
 
 type PaintPageProps = {
   paletteId: string | null;
@@ -30,25 +30,22 @@ const PaintPage = (props: PaintPageProps) => {
         <img
           onClick={handleBackToMenu}
           id="back-btn"
-          src="assets/back-btn.png"
+          src="icons/back-btn.png"
         />
         <div>
-          <img id="save-btn" src="assets/save-btn.png" />
+          <img id="save-btn" src="icons/save-btn.png" />
           <img
             onClick={shareATweet}
             id="twitter-btn"
-            src="assets/twitter-btn.png"
+            src="icons/twitter-btn.png"
           />
         </div>
       </div>
       <Canvas
+        setIsEraserMode={setIsEraserMode}
         selectedColor={selectedColor}
         isEraserMode={isEraserMode}
         selectedImage={selectedImage}
-      />
-      <CanvasButtonItems
-        isEraserMode={isEraserMode}
-        setIsEraserMode={setIsEraserMode}
       />
       <Palette
         setSelectedColor={setSelectedColor}

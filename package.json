@@ -5,7 +5,7 @@
   "main": "./src/index.tsx",
   "type": "module",
   "scripts": {
-    "format": "prettier --write **.js **.html */**.tsx */*/*.tsx */*/*/*.tsx",
+    "format": "prettier --write **.js **.html */**.tsx */*/*.tsx */*/*/*.tsx */*.ts */*/*/ts",
     "lint": "eslint --ext .tsx",
     "dev": "vite",
     "build": "tsc && vite build",

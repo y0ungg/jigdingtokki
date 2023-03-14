@@ -10,17 +10,17 @@
       "<all_urls>"
     ],
     "resources": [
-      "main.css",
+      "assets/*.css",
       "font/DNFBitBitOTF.otf",
       "font/DNFBitBitTTF.ttf",
-      "assets/*.png",
+      "icons/*.png",
       "images/*.png",
       "border-menu/*.png"
     ]
   }],
   "icons": {
-    "16": "assets/carrot128.png",
-    "48": "assets/carrot128.png",
-    "128": "assets/carrot128.png"
+    "16": "icons/carrot128.png",
+    "48": "icons/carrot128.png",
+    "128": "icons/carrot128.png"
   }
 }

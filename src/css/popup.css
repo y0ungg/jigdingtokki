@@ -91,10 +91,10 @@ body {
   left: 6px;
 }
 #canvas.pen {
-  cursor: url("chrome-extension://__MSG_@@extension_id__/assets/cursor-pen.png") -5 20, default;
+  cursor: url("chrome-extension://__MSG_@@extension_id__/icons/cursor-pen.png") -5 20, default;
 }
 #canvas.eraser {
-  cursor: url("chrome-extension://__MSG_@@extension_id__/assets/cursor-eraser.png") -5 20, default;
+  cursor: url("chrome-extension://__MSG_@@extension_id__/icons/cursor-eraser.png") -5 20, default;
 }
 #canvas--image {
   position: absolute;
@@ -103,7 +103,7 @@ body {
 }
 
 #canvas--container {
-  background-image: url("chrome-extension://__MSG_@@extension_id__/assets/canvas.png");
+  background-image: url("chrome-extension://__MSG_@@extension_id__/icons/canvas.png");
   height: 462px;
   width: 462px;
   position: relative;

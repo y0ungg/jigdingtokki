@@ -1,4 +1,4 @@
-export const PALETTE_COLORS: {[key: string]:string[]} = {
+export const PALETTE_COLORS: { [key: string]: string[] } = {
   "stage1-a": [
     "#f4a6cc",
     "#f6c2d8",
@@ -35,4 +35,4 @@ export const PALETTE_COLORS: {[key: string]:string[]} = {
     "rgb(218,203,190)",
     "rgb(95,68,43)",
   ],
-}
+};

@@ -25,30 +25,22 @@ const MenuPage = (props: MenuPageProps) => {
         <img
           onClick={handleCloseMenu}
           id="close-btn"
-          src="assets/close-btn.png"
+          src="icons/close-btn.png"
         />
       </div>
       <div id="menu">
         <div>직딩 토끼의 하루</div>
-        <img className="stage" src="assets/stage1.png" />
+        <img className="stage" src="icons/stage1.png" />
         <div className="border">
           <img
             onClick={handleSelectImage}
             id="stage1-a"
             src="border-menu/b-stage1-a.png"
           />
-          <img
-            onClick={handleSelectImage}
-            id="stage1-b"
-            src="assets/border.png"
-          />
-          <img
-            onClick={handleSelectImage}
-            id="stage1-c"
-            src="assets/border.png"
-          />
+          <img id="stage1-b" src="icons/border.png" />
+          <img id="stage1-c" src="icons/border.png" />
         </div>
-        <img className="stage" src="assets/stage2.png" />
+        <img className="stage" src="icons/stage2.png" />
         <div className="border">
           <img
             onClick={handleSelectImage}
@@ -60,29 +52,13 @@ const MenuPage = (props: MenuPageProps) => {
             id="stage2-b"
             src="border-menu/b-stage2-b.png"
           />
-          <img
-            onClick={handleSelectImage}
-            id="stage2-c"
-            src="assets/border.png"
-          />
+          <img id="stage2-c" src="icons/border.png" />
         </div>
-        <img className="stage" src="assets/stage3.png" />
+        <img className="stage" src="icons/stage3.png" />
         <div className="border">
-          <img
-            onClick={handleSelectImage}
-            id="stage3-a"
-            src="assets/border.png"
-          />
-          <img
-            onClick={handleSelectImage}
-            id="stage3-b"
-            src="assets/border.png"
-          />
-          <img
-            onClick={handleSelectImage}
-            id="stage3-c"
-            src="assets/border.png"
-          />
+          <img id="stage3-a" src="icons/border.png" />
+          <img id="stage3-b" src="icons/border.png" />
+          <img id="stage3-c" src="icons/border.png" />
         </div>
       </div>
     </div>
