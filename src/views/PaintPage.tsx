@@ -9,11 +9,21 @@ type PaintPageProps = {
 
 const PaintPage = (props: PaintPageProps) => {
   const { paletteId, selectedImage, setSelectedImage } = props;
+  const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const [isEraserMode, setIsEraserMode] = React.useState(false);
   const [selectedColor, setSelectedColor] = React.useState<string | null>(null);
 
   const handleBackToMenu = () => {
     setSelectedImage(null);
+  };
+
+  const saveCanvasImage = () => {
+    const link = document.createElement("a");
+    link.download = "jigdingtokki.png";
+    if (canvasRef.current) {
+      link.href = canvasRef.current?.toDataURL("image/png");
+    }
+    link.click();
   };
 
   const shareATweet = () => {
@@ -33,7 +43,11 @@ const PaintPage = (props: PaintPageProps) => {
           src="icons/back-btn.png"
         />
         <div>
-          <img id="save-btn" src="icons/save-btn.png" />
+          <img
+            onClick={saveCanvasImage}
+            id="save-btn"
+            src="icons/save-btn.png"
+          />
           <img
             onClick={shareATweet}
             id="twitter-btn"
@@ -42,6 +56,7 @@ const PaintPage = (props: PaintPageProps) => {
         </div>
       </div>
       <Canvas
+        ref={canvasRef}
         setIsEraserMode={setIsEraserMode}
         selectedColor={selectedColor}
         isEraserMode={isEraserMode}
