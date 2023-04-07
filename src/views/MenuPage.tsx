@@ -1,5 +1,14 @@
 import React from "react";
-import { CloseBtn, Locked, StageA, StageB, StageC } from "public/icons";
+import {
+  Ask,
+  CloseBtn,
+  Locked,
+  SoundOff,
+  SoundOn,
+  StageA,
+  StageB,
+  StageC,
+} from "public/icons";
 import { StageAA, StageBA, StageBB } from "public/border-menu";
 
 type MenuPageProps = {
@@ -9,6 +18,7 @@ type MenuPageProps = {
 
 const MenuPage = (props: MenuPageProps) => {
   const { setSelectedImage, setPaletteId } = props;
+  const [isSoundOn, setIsSoundOn] = React.useState(true);
 
   const handleSelectImage = (e: React.MouseEvent<SVGElement>) => {
     const id = e.currentTarget.id;
@@ -20,6 +30,10 @@ const MenuPage = (props: MenuPageProps) => {
     window.close();
   };
 
+  const handleSoundSwitch = () => {
+    setIsSoundOn(!isSoundOn);
+  };
+
   return (
     <div id="menu--container">
       <div>
@@ -27,7 +41,15 @@ const MenuPage = (props: MenuPageProps) => {
         <CloseBtn onClick={handleCloseMenu} id="close-btn" />
       </div>
       <div id="menu">
-        <div>직딩 토끼의 하루</div>
+        <div>
+          {isSoundOn ? (
+            <SoundOn onClick={handleSoundSwitch} />
+          ) : (
+            <SoundOff onClick={handleSoundSwitch} />
+          )}
+          <Ask />
+        </div>
+        <div id="subject">직딩 토끼의 하루</div>
         <StageA className="stage" />
         <div className="border">
           <StageAA onClick={handleSelectImage} id="stage1-a" />

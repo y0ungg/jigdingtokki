@@ -10,3 +10,6 @@ export { default as EraserBtn } from "./EraserBtn";
 export { default as PenBtn } from "./PenBtn";
 export { default as SaveBtn } from "./SaveBtn";
 export { default as TwitterBtn } from "./TwitterBtn";
+export { default as SoundOn } from "./SoundOn";
+export { default as SoundOff } from "./SoundOff";
+export { default as Ask } from "./Ask";

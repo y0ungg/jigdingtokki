@@ -34,7 +34,16 @@ body {
   align-items: center;
 }
 #menu > div:first-child {
-  margin: 23px 0;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 15px;
+}
+#menu > div:first-child > svg:hover {
+  cursor: pointer;
+}
+#menu > div#subject {
+  margin-bottom: 23px;
   font-family: 'bitbit';
   font-size: 36px;
   color: #F59AC0;
