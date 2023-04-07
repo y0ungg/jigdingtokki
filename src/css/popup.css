@@ -8,7 +8,7 @@ body {
 }
 
 #menu--container {
-  width: 100%;
+  width: 490px;
   height: 100%;
 }
 #menu--container > div:first-child {
@@ -21,7 +21,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
-#menu--container > div:first-child > img:hover, .border > img:hover {
+#menu--container > div:first-child > svg:hover, .border > svg:hover {
   cursor: pointer;
 }
 
@@ -52,17 +52,19 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 490px;
 }
+
 #painting--container > div.painting--button {
   display: flex;
   justify-content: space-between;
   width: 460px;
   margin: 30px;
 }
-#painting--container > div.painting--button img:first-child {
+#painting--container > div.painting--button svg:first-child {
   margin-right: 10px;
 }
-#painting--container > div.painting--button img, div.color {
+#painting--container > div.painting--button svg, div.color {
   cursor: pointer;
 }
 

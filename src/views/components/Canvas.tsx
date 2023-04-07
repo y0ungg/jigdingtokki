@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import { filter, takeLast } from "@/utils";
 import { useForwardRef } from "@/hooks/useForwardRef";
+import { CancelBtn, DeleteBtn, EraserBtn, PenBtn } from "public/icons";
 
 type CanvasProps = {
   setIsEraserMode: React.Dispatch<React.SetStateAction<boolean>>;
@@ -117,28 +118,12 @@ export const Canvas = forwardRef(
         </div>
         <div className="painting--button">
           <div>
-            <img
-              onClick={() => setIsEraserMode(false)}
-              id="pen-btn"
-              src="icons/pen-btn.png"
-            />
-            <img
-              onClick={() => setIsEraserMode(true)}
-              id="eraser-btn"
-              src="icons/eraser-btn.png"
-            />
+            <PenBtn onClick={() => setIsEraserMode(false)} id="pen-btn" />
+            <EraserBtn onClick={() => setIsEraserMode(true)} id="eraser-btn" />
           </div>
           <div>
-            <img
-              id="cancel-btn"
-              src="icons/cancel-btn.png"
-              onClick={undoPaint}
-            />
-            <img
-              id="delete-btn"
-              src="icons/delete-btn.png"
-              onClick={removePaint}
-            />
+            <CancelBtn id="cancel-btn" onClick={undoPaint} />
+            <DeleteBtn id="delete-btn" onClick={removePaint} />
           </div>
         </div>
       </>

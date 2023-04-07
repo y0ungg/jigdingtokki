@@ -1,5 +1,6 @@
 import React from "react";
 import { Palette, Canvas } from "@/views/components";
+import { BackBtn, SaveBtn, TwitterBtn } from "public/icons";
 
 type PaintPageProps = {
   paletteId: string | null;
@@ -37,22 +38,10 @@ const PaintPage = (props: PaintPageProps) => {
   return (
     <div id="painting--container">
       <div className="painting--button">
-        <img
-          onClick={handleBackToMenu}
-          id="back-btn"
-          src="icons/back-btn.png"
-        />
+        <BackBtn onClick={handleBackToMenu} id="back-btn" />
         <div>
-          <img
-            onClick={saveCanvasImage}
-            id="save-btn"
-            src="icons/save-btn.png"
-          />
-          <img
-            onClick={shareATweet}
-            id="twitter-btn"
-            src="icons/twitter-btn.png"
-          />
+          <SaveBtn onClick={saveCanvasImage} id="save-btn" />
+          <TwitterBtn onClick={shareATweet} id="twitter-btn" />
         </div>
       </div>
       <Canvas

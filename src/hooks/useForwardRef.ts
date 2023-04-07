@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const useForwardRef = <T>(
   ref: React.ForwardedRef<T>,
@@ -9,7 +9,7 @@ export const useForwardRef = <T>(
   React.useEffect(() => {
     if (!ref) return;
 
-    if (typeof ref === 'function') {
+    if (typeof ref === "function") {
       ref(targetRef.current);
     } else {
       targetRef.current = ref.current;
@@ -17,4 +17,4 @@ export const useForwardRef = <T>(
   }, [ref]);
 
   return targetRef;
-}
+};
