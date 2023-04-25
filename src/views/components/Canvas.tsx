@@ -1,13 +1,15 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import { filter, takeLast } from "@/utils";
 import { useForwardRef } from "@/hooks/useForwardRef";
 import { CancelBtn, DeleteBtn, EraserBtn, PenBtn } from "public/icons";
+import soundSrc from 'public/sound.webm'
 
 type CanvasProps = {
   setIsEraserMode: React.Dispatch<React.SetStateAction<boolean>>;
   isEraserMode: boolean;
   selectedImage: string | null;
   selectedColor: string | null;
+  isSoundOn: boolean;
 };
 
 type Coord = {
@@ -22,11 +24,17 @@ type DrawHistory = Coord & {
 
 const drawHistory: Array<DrawHistory> = [];
 
-export const Canvas = forwardRef(
+export const Canvas = React.forwardRef(
   (props: CanvasProps, ref: React.ForwardedRef<HTMLCanvasElement>) => {
-    const { setIsEraserMode, isEraserMode, selectedImage, selectedColor } =
-      props;
+    const {
+      setIsEraserMode,
+      isEraserMode,
+      selectedImage,
+      selectedColor,
+      isSoundOn,
+    } = props;
     const canvasRef = useForwardRef<HTMLCanvasElement>(ref);
+    const soundRef = React.useRef<HTMLAudioElement>(null)
 
     const [matrix, setMatrix] = React.useState(
       Array(30)
@@ -37,6 +45,7 @@ export const Canvas = forwardRef(
     const doPaint = (event: React.MouseEvent<HTMLCanvasElement>) => {
       const canvas = canvasRef.current;
       const context = canvas?.getContext("2d");
+      const sound = soundRef.current
 
       const x = Math.floor(event.nativeEvent.offsetX / 15) * 15;
       const y = Math.floor(event.nativeEvent.offsetY / 15) * 15;
@@ -52,6 +61,8 @@ export const Canvas = forwardRef(
 
         drawHistory.push({ x, y, type: "remove", color: null });
       } else if (context && selectedColor) {
+        isSoundOn && sound?.play()
+
         context.fillStyle = selectedColor;
         context.fillRect(x, y, 15, 15);
 
@@ -73,7 +84,6 @@ export const Canvas = forwardRef(
       };
       const isHistoryTypeDraw = (x: DrawHistory) => x.type === "draw";
 
-      // 가장 최근 기록중에 draw이며, 현재 지워지지 않은 노드를 찾는다.
       const recentDrawHistory = takeLast([
         ...filter(isCurrentlyPainted, filter(isHistoryTypeDraw, drawHistory)),
       ]);
@@ -126,6 +136,9 @@ export const Canvas = forwardRef(
             <DeleteBtn id="delete-btn" onClick={removePaint} />
           </div>
         </div>
+        <audio ref={soundRef}>
+          <source src={soundSrc} type='audio/webm' />
+        </audio>
       </>
     );
   }

@@ -6,10 +6,11 @@ type PaintPageProps = {
   paletteId: string | null;
   selectedImage: string | null;
   setSelectedImage: React.Dispatch<React.SetStateAction<null | string>>;
+  isSoundOn: boolean;
 };
 
 const PaintPage = (props: PaintPageProps) => {
-  const { paletteId, selectedImage, setSelectedImage } = props;
+  const { paletteId, selectedImage, setSelectedImage, isSoundOn } = props;
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const [isEraserMode, setIsEraserMode] = React.useState(false);
   const [selectedColor, setSelectedColor] = React.useState<string | null>(null);
@@ -50,6 +51,7 @@ const PaintPage = (props: PaintPageProps) => {
         selectedColor={selectedColor}
         isEraserMode={isEraserMode}
         selectedImage={selectedImage}
+        isSoundOn={isSoundOn}
       />
       <Palette
         setSelectedColor={setSelectedColor}

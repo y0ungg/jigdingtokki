@@ -15,7 +15,8 @@
       "font/DNFBitBitTTF.ttf",
       "icons/*.png",
       "images/*.png",
-      "border-menu/*.png"
+      "border-menu/*.png",
+      "sound.webm"
     ]
   }],
   "icons": {

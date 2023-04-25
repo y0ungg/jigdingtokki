@@ -14,11 +14,12 @@ import { StageAA, StageBA, StageBB } from "public/border-menu";
 type MenuPageProps = {
   setSelectedImage: React.Dispatch<React.SetStateAction<null | string>>;
   setPaletteId: React.Dispatch<React.SetStateAction<null | string>>;
+  setIsSoundOn: React.Dispatch<React.SetStateAction<boolean>>;
+  isSoundOn: boolean;
 };
 
 const MenuPage = (props: MenuPageProps) => {
-  const { setSelectedImage, setPaletteId } = props;
-  const [isSoundOn, setIsSoundOn] = React.useState(true);
+  const { setSelectedImage, setPaletteId, setIsSoundOn, isSoundOn } = props;
 
   const handleSelectImage = (e: React.MouseEvent<SVGElement>) => {
     const id = e.currentTarget.id;
